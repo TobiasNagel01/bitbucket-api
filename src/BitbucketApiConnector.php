@@ -13,8 +13,6 @@ class BitbucketApiConnector extends Connector
 {
     use AuthorizationCodeGrant;
 
-    public bool $allowBaseUrlOverride = true;
-
     protected ?string $response = BitbucketApiResponse::class;
 
     public function resolveBaseUrl(): string
@@ -39,6 +37,7 @@ class BitbucketApiConnector extends Connector
         $scopes = collect(config()->array('bitbucket-api.scopes'))->filter(fn($s) => is_string($s))->toArray();
 
         return OAuthConfig::make()
+            ->setAllowBaseUrlOverride()
             ->setClientId(config()->string('bitbucket-api.oauth.client_id'))
             ->setClientSecret(config()->string('bitbucket-api.oauth.client_secret'))
             ->setDefaultScopes($scopes)
