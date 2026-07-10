@@ -9,9 +9,11 @@ use Saloon\Http\Connector;
 use Saloon\Traits\OAuth2\AuthorizationCodeGrant;
 use Tobiasn\BitbucketApi\Responses\BitbucketApiResponse;
 
-class BitbucketApi extends Connector
+class BitbucketApiConnector extends Connector
 {
     use AuthorizationCodeGrant;
+
+    public bool $allowBaseUrlOverride = true;
 
     protected ?string $response = BitbucketApiResponse::class;
 
