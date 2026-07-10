@@ -6,7 +6,9 @@ namespace Tobiasn\BitbucketApi;
 
 use Saloon\Helpers\OAuth2\OAuthConfig;
 use Saloon\Http\Connector;
+use Saloon\Http\Request;
 use Saloon\Traits\OAuth2\AuthorizationCodeGrant;
+use Tobiasn\BitbucketApi\Requests\GetCurrentUserRequest;
 use Tobiasn\BitbucketApi\Responses\BitbucketApiResponse;
 
 class BitbucketApiConnector extends Connector
@@ -45,5 +47,10 @@ class BitbucketApiConnector extends Connector
             ->setAuthorizeEndpoint('https://bitbucket.org/site/oauth2/authorize')
             ->setTokenEndpoint('https://bitbucket.org/site/oauth2/access_token')
             ->setUserEndpoint('/user');
+    }
+
+    protected function resolveUserRequest(OAuthConfig $oauthConfig): Request
+    {
+        return new GetCurrentUserRequest();
     }
 }
