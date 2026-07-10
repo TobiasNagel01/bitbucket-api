@@ -41,7 +41,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tobiasn\\BitbucketApi\\MehValorantSDKServiceProvider"
+                "Tobiasn\\BitbucketApi\\BitbucketApiServiceProvider"
             ],
             "aliases": {
                 "BitbucketApiSDK": "BitbucketApi"
