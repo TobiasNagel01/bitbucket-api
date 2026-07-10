@@ -1,0 +1,6 @@
+includes:
+
+parameters:
+    paths:
+        - src/
+    level: 10

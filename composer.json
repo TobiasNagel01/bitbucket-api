@@ -1,0 +1,64 @@
+{
+    "name": "tobiasnagel01/bitbucket-sdk",
+    "description": "Unofficial PHP SDK for Bitbucket REST API",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tobias Nagel",
+            "email": "tobias.nagel001@gmail.com"
+        }
+    ],
+
+    "require": {
+        "php": "^8.4",
+        "illuminate/contracts": "^12.0|^13.0",
+        "saloonphp/laravel-plugin": "^4.0",
+        "saloonphp/saloon": "^4.0",
+        "spatie/laravel-data": "^4.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.14",
+        "nunomaduro/collision": "^8.1.1||^7.10.0",
+        "orchestra/testbench": "^10.0.0||^9.0.0||^8.22.0",
+        "pestphp/pest": "^4.0.3",
+        "pestphp/pest-plugin-arch": "^4.0.0",
+        "pestphp/pest-plugin-laravel": "^4.0.0",
+        "rector/rector": "^2.1"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Tobiasn\\BitbucketApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tobiasn\\BitbucketApi\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tobiasn\\BitbucketApi\\MehValorantSDKServiceProvider"
+            ],
+            "aliases": {
+                "BitbucketApiSDK": "BitbucketApi"
+            }
+        }
+    },
+    "scripts": {
+        "fix-code": [
+            "./vendor/bin/php-cs-fixer fix --allow-risky=yes"
+        ],
+        "test": [
+            "./vendor/bin/pest"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
