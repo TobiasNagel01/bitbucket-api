@@ -2,15 +2,17 @@
 
 namespace Tobiasn\BitbucketApi\DataTransferObjects;
 
-final class UserDTO
+use Spatie\LaravelData\Data;
+
+final class UserDTO extends Data
 {
     public function __construct(
-        private string $uuid,
-        private string $username,
-        private string $account_id,
-        private string $nickname,
-        private string $account_status,
-        private bool   $has_2fa_enabled,
+        public string $uuid,
+        public string $username,
+        public string $account_id,
+        public string $nickname,
+        public string $account_status,
+        public bool   $has_2fa_enabled,
     )
     {
     }

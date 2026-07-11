@@ -8,7 +8,7 @@ use Saloon\Helpers\OAuth2\OAuthConfig;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\Traits\OAuth2\AuthorizationCodeGrant;
-use Tobiasn\BitbucketApi\Requests\GetCurrentUserRequest;
+use Tobiasn\BitbucketApi\Requests\Users\GetCurrentUserRequest;
 use Tobiasn\BitbucketApi\Responses\BitbucketApiResponse;
 
 class BitbucketApiConnector extends Connector
@@ -29,7 +29,6 @@ class BitbucketApiConnector extends Connector
     {
         return [
             'Accept' => 'application/json',
-            'Content-Type' => 'application/json',
         ];
     }
 
