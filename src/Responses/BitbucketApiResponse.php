@@ -13,8 +13,8 @@ class BitbucketApiResponse extends Response
     {
         $value = $this->json($key);
 
-        if (!is_string($value)) {
-            throw new BitbucketApiParsingException("Failed to parse " . $key . " from Bitbucket API");
+        if (! is_string($value)) {
+            throw new BitbucketApiParsingException('Failed to parse '.$key.' from Bitbucket API');
         }
 
         return $value;
@@ -24,8 +24,8 @@ class BitbucketApiResponse extends Response
     {
         $value = $this->json($key);
 
-        if (!is_bool($value)) {
-            throw new BitbucketApiParsingException("Failed to parse " . $key . " from Bitbucket API");
+        if (! is_bool($value)) {
+            throw new BitbucketApiParsingException('Failed to parse '.$key.' from Bitbucket API');
         }
 
         return $value;
@@ -38,8 +38,8 @@ class BitbucketApiResponse extends Response
     {
         $value = $this->json($key);
 
-        if (!is_array($value)) {
-            throw new BitbucketApiParsingException("Failed to parse " . $key . " from Bitbucket API");
+        if (! is_array($value)) {
+            throw new BitbucketApiParsingException('Failed to parse '.$key.' from Bitbucket API');
         }
 
         return $value;

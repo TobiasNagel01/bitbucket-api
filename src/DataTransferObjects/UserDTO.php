@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tobiasn\BitbucketApi\DataTransferObjects;
 
 use Spatie\LaravelData\Data;
@@ -12,8 +14,6 @@ final class UserDTO extends Data
         public string $account_id,
         public string $nickname,
         public string $account_status,
-        public bool   $has_2fa_enabled,
-    )
-    {
-    }
+        public bool $has_2fa_enabled,
+    ) {}
 }

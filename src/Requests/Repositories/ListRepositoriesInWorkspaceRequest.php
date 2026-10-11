@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tobiasn\BitbucketApi\Requests\Repositories;
 
 use Illuminate\Support\Collection;
@@ -18,17 +20,15 @@ class ListRepositoriesInWorkspaceRequest extends Request
     protected Method $method = Method::GET;
 
     /**
-     * @param string $workspace This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: {workspace UUID}.
+     * @param  string  $workspace  This can either be the workspace ID (slug) or the workspace UUID surrounded by curly-braces, for example: {workspace UUID}.
      */
     public function __construct(
         private readonly string $workspace,
-    )
-    {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {
-        return '/repositories/' . $this->workspace;
+        return '/repositories/'.$this->workspace;
     }
 
     /**
@@ -36,8 +36,8 @@ class ListRepositoriesInWorkspaceRequest extends Request
      */
     public function createDtoFromResponse(Response $response): Collection
     {
-        if (!$response instanceof BitbucketApiResponse) {
-            throw new RuntimeException();
+        if (! $response instanceof BitbucketApiResponse) {
+            throw new RuntimeException;
         }
 
         return collect($response->arr('values'))->map(function ($rep) {

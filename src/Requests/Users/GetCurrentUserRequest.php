@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tobiasn\BitbucketApi\Requests\Users;
 
 use Saloon\Enums\Method;
