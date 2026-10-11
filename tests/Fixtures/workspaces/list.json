@@ -4,11 +4,18 @@
   "size": 1,
   "values": [
     {
-      "type": "workspace",
-      "uuid": "{11111111-2222-3333-4444-555555555555}",
-      "slug": "acme",
-      "name": "Acme Inc",
-      "is_private": true
+      "type": "workspace_access",
+      "administrator": true,
+      "workspace": {
+        "type": "workspace_base",
+        "uuid": "{11111111-2222-3333-4444-555555555555}",
+        "slug": "acme",
+        "name": "Acme Inc",
+        "links": {
+          "avatar": { "href": "https://api.bitbucket.org/workspaces/acme/avatar/" },
+          "self": { "href": "https://api.bitbucket.org/2.0/workspaces/acme" }
+        }
+      }
     }
   ]
 }
