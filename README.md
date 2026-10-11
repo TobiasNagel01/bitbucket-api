@@ -107,6 +107,7 @@ Any other Saloon authenticator works too, for example `new TokenAuthenticator($a
 Notes:
 
 - Bitbucket accepts several `state` values only as repeated query keys, which Saloon cannot emit. Pass a single `state`, or use `q: 'state="OPEN" OR state="MERGED"'`.
+- `ListWorkspacesRequest` calls `GET /2.0/user/workspaces` (Atlassian removed `GET /2.0/workspaces` in 2026, CHANGE-2770). It returns `WorkspaceAccessDTO` items with an `administrator` flag and a minimal `workspace` (`uuid`, `slug`, optional `name`); use `GetWorkspaceRequest` for full workspace details.
 - Dates are ISO-8601 strings. Pull request activity and pipeline target/trigger payloads are kept as arrays because their shape varies.
 
 ## Development

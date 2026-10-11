@@ -9,11 +9,16 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
-use Tobiasn\BitbucketApi\DataTransferObjects\WorkspaceDTO;
+use Tobiasn\BitbucketApi\DataTransferObjects\WorkspaceAccessDTO;
 use Tobiasn\BitbucketApi\Requests\Concerns\CreatesCollectionDto;
 
 /**
- * @see https://developer.atlassian.com/cloud/bitbucket/rest/api-group-workspaces/#api-workspaces-get
+ * Lists the workspaces accessible to the authenticated user.
+ *
+ * Uses `GET /2.0/user/workspaces`. The former `GET /2.0/workspaces` endpoint was
+ * removed by Atlassian in 2026 (CHANGE-2770, cross-workspace API sunset).
+ *
+ * @see https://developer.atlassian.com/cloud/bitbucket/rest/api-group-workspaces/#api-user-workspaces-get
  */
 final class ListWorkspacesRequest extends Request implements Paginatable
 {
@@ -22,13 +27,13 @@ final class ListWorkspacesRequest extends Request implements Paginatable
     protected Method $method = Method::GET;
 
     /**
-     * @param  string|null  $role  Filter by the authenticated user's role: `member`, `collaborator` or `owner`.
+     * @param  bool|null  $administrator  Only workspaces the user administers (`true`) or does not administer (`false`).
      * @param  string|null  $q  Bitbucket query string, for example: `slug="my-workspace"`.
-     * @param  string|null  $sort  Field to sort by, prefix with `-` for descending, for example: `-created_on`.
+     * @param  string|null  $sort  Field to sort by; only `slug` is supported, prefix with `-` for descending.
      * @param  int|null  $pagelen  Page size.
      */
     public function __construct(
-        private readonly ?string $role = null,
+        private readonly ?bool $administrator = null,
         private readonly ?string $q = null,
         private readonly ?string $sort = null,
         private readonly ?int $pagelen = null,
@@ -36,7 +41,7 @@ final class ListWorkspacesRequest extends Request implements Paginatable
 
     public function resolveEndpoint(): string
     {
-        return '/workspaces';
+        return '/user/workspaces';
     }
 
     /**
@@ -45,7 +50,7 @@ final class ListWorkspacesRequest extends Request implements Paginatable
     protected function defaultQuery(): array
     {
         return array_filter([
-            'role' => $this->role,
+            'administrator' => $this->administrator === null ? null : ($this->administrator ? 'true' : 'false'),
             'q' => $this->q,
             'sort' => $this->sort,
             'pagelen' => $this->pagelen,
@@ -53,10 +58,10 @@ final class ListWorkspacesRequest extends Request implements Paginatable
     }
 
     /**
-     * @return Collection<int, WorkspaceDTO>
+     * @return Collection<int, WorkspaceAccessDTO>
      */
     public function createDtoFromResponse(Response $response): Collection
     {
-        return $this->mapValues($response, WorkspaceDTO::class);
+        return $this->mapValues($response, WorkspaceAccessDTO::class);
     }
 }
