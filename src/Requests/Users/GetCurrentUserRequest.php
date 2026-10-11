@@ -12,7 +12,7 @@ use Tobiasn\BitbucketApi\DataTransferObjects\UserDTO;
 /**
  * @see https://developer.atlassian.com/cloud/bitbucket/rest/api-group-users/#api-user-get
  */
-class GetCurrentUserRequest extends Request
+final class GetCurrentUserRequest extends Request
 {
     protected Method $method = Method::GET;
 

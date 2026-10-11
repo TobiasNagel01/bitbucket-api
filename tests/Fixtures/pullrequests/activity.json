@@ -1,0 +1,37 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "approval": {
+        "date": "2026-10-02T10:00:00+00:00",
+        "user": {
+          "type": "user",
+          "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+          "display_name": "Jane Doe",
+          "nickname": "jane",
+          "account_id": "557058:abc"
+        }
+      },
+      "pull_request": {
+        "id": 1
+      }
+    },
+    {
+      "update": {
+        "state": "OPEN",
+        "title": "PR 1",
+        "date": "2026-10-01T10:00:00+00:00",
+        "author": {
+          "type": "user",
+          "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+          "display_name": "Jane Doe",
+          "nickname": "jane",
+          "account_id": "557058:abc"
+        }
+      },
+      "pull_request": {
+        "id": 1
+      }
+    }
+  ]
+}

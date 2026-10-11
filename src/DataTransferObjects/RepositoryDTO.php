@@ -17,5 +17,6 @@ final class RepositoryDTO extends Data
         public string $name,
         public ?string $description = null,
         public ?string $language = null,
+        public ?WorkspaceDTO $workspace = null,
     ) {}
 }

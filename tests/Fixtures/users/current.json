@@ -1,0 +1,10 @@
+{
+  "type": "user",
+  "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+  "username": "jane",
+  "account_id": "557058:abc",
+  "nickname": "jane",
+  "account_status": "active",
+  "has_2fa_enabled": true,
+  "display_name": "Jane Doe"
+}

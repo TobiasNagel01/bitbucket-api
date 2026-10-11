@@ -1,0 +1,30 @@
+{
+  "type": "repository",
+  "uuid": "{66666666-7777-8888-9999-000000000000}",
+  "full_name": "acme/api",
+  "slug": "api",
+  "name": "api",
+  "is_private": true,
+  "description": "The API",
+  "language": "php",
+  "owner": {
+    "type": "user",
+    "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+    "display_name": "Jane Doe",
+    "nickname": "jane",
+    "account_id": "557058:abc"
+  },
+  "workspace": {
+    "type": "workspace",
+    "uuid": "{11111111-2222-3333-4444-555555555555}",
+    "slug": "acme",
+    "name": "Acme Inc",
+    "is_private": true
+  },
+  "scm": "git",
+  "links": {
+    "html": {
+      "href": "https://bitbucket.org/acme/api"
+    }
+  }
+}

@@ -7,11 +7,13 @@ namespace Tobiasn\BitbucketApi;
 use Saloon\Helpers\OAuth2\OAuthConfig;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Contracts\HasPagination;
 use Saloon\Traits\OAuth2\AuthorizationCodeGrant;
+use Tobiasn\BitbucketApi\Pagination\BitbucketPaginator;
 use Tobiasn\BitbucketApi\Requests\Users\GetCurrentUserRequest;
 use Tobiasn\BitbucketApi\Responses\BitbucketApiResponse;
 
-class BitbucketApiConnector extends Connector
+class BitbucketApiConnector extends Connector implements HasPagination
 {
     use AuthorizationCodeGrant;
 
@@ -46,6 +48,14 @@ class BitbucketApiConnector extends Connector
             ->setAuthorizeEndpoint('https://bitbucket.org/site/oauth2/authorize')
             ->setTokenEndpoint('https://bitbucket.org/site/oauth2/access_token')
             ->setUserEndpoint('/user');
+    }
+
+    /**
+     * Iterate over every page of a list request. Use `->collect()` for a lazy collection of DTOs.
+     */
+    public function paginate(Request $request): BitbucketPaginator
+    {
+        return new BitbucketPaginator($this, $request);
     }
 
     protected function resolveUserRequest(OAuthConfig $oauthConfig): Request

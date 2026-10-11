@@ -1,0 +1,83 @@
+{
+  "pagelen": 10,
+  "page": 1,
+  "size": 2,
+  "values": [
+    {
+      "type": "pipeline",
+      "uuid": "{p43}",
+      "build_number": 43,
+      "state": {
+        "type": "pipeline_state_in_progress",
+        "name": "IN_PROGRESS"
+      },
+      "creator": {
+        "type": "user",
+        "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+        "display_name": "Jane Doe",
+        "nickname": "jane",
+        "account_id": "557058:abc"
+      },
+      "created_on": "2026-10-01T10:00:00+00:00",
+      "completed_on": null,
+      "target": {
+        "type": "pipeline_ref_target",
+        "ref_type": "branch",
+        "ref_name": "main",
+        "commit": {
+          "type": "commit",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "selector": {
+          "type": "default"
+        }
+      },
+      "trigger": {
+        "type": "pipeline_trigger_push",
+        "name": "PUSH"
+      },
+      "build_seconds_used": null,
+      "duration_in_seconds": null
+    },
+    {
+      "type": "pipeline",
+      "uuid": "{p42}",
+      "build_number": 42,
+      "state": {
+        "type": "pipeline_state_completed",
+        "name": "COMPLETED",
+        "result": {
+          "type": "pipeline_state_completed_failed",
+          "name": "FAILED"
+        }
+      },
+      "creator": {
+        "type": "user",
+        "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+        "display_name": "Jane Doe",
+        "nickname": "jane",
+        "account_id": "557058:abc"
+      },
+      "created_on": "2026-10-01T10:00:00+00:00",
+      "completed_on": "2026-10-01T10:05:00+00:00",
+      "target": {
+        "type": "pipeline_ref_target",
+        "ref_type": "branch",
+        "ref_name": "main",
+        "commit": {
+          "type": "commit",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "selector": {
+          "type": "default"
+        }
+      },
+      "trigger": {
+        "type": "pipeline_trigger_push",
+        "name": "PUSH"
+      },
+      "build_seconds_used": 120,
+      "duration_in_seconds": 120
+    }
+  ]
+}

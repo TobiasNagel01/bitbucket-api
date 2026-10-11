@@ -1,0 +1,32 @@
+{
+  "pagelen": 500,
+  "page": 1,
+  "size": 2,
+  "values": [
+    {
+      "type": "diffstat",
+      "status": "modified",
+      "lines_added": 3,
+      "lines_removed": 1,
+      "old": {
+        "path": "src/Foo.php",
+        "type": "commit_file"
+      },
+      "new": {
+        "path": "src/Foo.php",
+        "type": "commit_file"
+      }
+    },
+    {
+      "type": "diffstat",
+      "status": "added",
+      "lines_added": 10,
+      "lines_removed": 0,
+      "old": null,
+      "new": {
+        "path": "src/Bar.php",
+        "type": "commit_file"
+      }
+    }
+  ]
+}

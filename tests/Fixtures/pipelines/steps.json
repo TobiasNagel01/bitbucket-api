@@ -1,0 +1,32 @@
+{
+  "pagelen": 10,
+  "page": 1,
+  "size": 1,
+  "values": [
+    {
+      "type": "pipeline_step",
+      "uuid": "{s1}",
+      "name": "Build",
+      "state": {
+        "type": "pipeline_state_completed",
+        "name": "COMPLETED",
+        "result": {
+          "type": "pipeline_state_completed_successful",
+          "name": "SUCCESSFUL"
+        }
+      },
+      "started_on": "2026-10-01T10:00:00+00:00",
+      "completed_on": "2026-10-01T10:02:00+00:00",
+      "duration_in_seconds": 120,
+      "image": {
+        "name": "php:8.4"
+      },
+      "script_commands": [
+        {
+          "command": "composer install",
+          "name": "composer install"
+        }
+      ]
+    }
+  ]
+}

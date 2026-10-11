@@ -15,5 +15,15 @@ final class PullRequestDTO extends Data
         public PullRequestState $state,
         public PullRequestEndpointDTO $source,
         public PullRequestEndpointDTO $destination,
+        public ?AccountDTO $author = null,
+        public ?string $description = null,
+        public bool $close_source_branch = false,
+        public ?int $comment_count = null,
+        public ?int $task_count = null,
+        public ?string $created_on = null,
+        public ?string $updated_on = null,
+        public ?CommitRefDTO $merge_commit = null,
+        public ?AccountDTO $closed_by = null,
+        public ?string $reason = null,
     ) {}
 }
