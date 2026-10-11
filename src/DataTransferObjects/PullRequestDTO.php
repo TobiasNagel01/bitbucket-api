@@ -1,19 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tobiasn\BitbucketApi\DataTransferObjects;
 
 use Spatie\LaravelData\Data;
-use Tobiasn\BitbucketApi\PullRequestState;
+use Tobiasn\BitbucketApi\Enums\PullRequestState;
 
 final class PullRequestDTO extends Data
 {
     public function __construct(
-        public int                    $id,
-        public string                 $title,
-        public PullRequestState       $state,
+        public int $id,
+        public string $title,
+        public PullRequestState $state,
         public PullRequestEndpointDTO $source,
         public PullRequestEndpointDTO $destination,
-    )
-    {
-    }
+    ) {}
 }

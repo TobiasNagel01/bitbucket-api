@@ -19,7 +19,7 @@ class BitbucketApiConnector extends Connector
 
     public function resolveBaseUrl(): string
     {
-        return 'https://api.bitbucket.org/2.0';
+        return rtrim(config()->string('bitbucket-api.base_url', 'https://api.bitbucket.org/2.0'), '/');
     }
 
     /**
@@ -35,7 +35,7 @@ class BitbucketApiConnector extends Connector
     protected function defaultOauthConfig(): OAuthConfig
     {
         /** @var array<string> $scopes */
-        $scopes = collect(config()->array('bitbucket-api.scopes'))->filter(fn($s) => is_string($s))->toArray();
+        $scopes = collect(config()->array('bitbucket-api.scopes'))->filter(fn ($s) => is_string($s))->toArray();
 
         return OAuthConfig::make()
             ->setAllowBaseUrlOverride()
@@ -50,6 +50,6 @@ class BitbucketApiConnector extends Connector
 
     protected function resolveUserRequest(OAuthConfig $oauthConfig): Request
     {
-        return new GetCurrentUserRequest();
+        return new GetCurrentUserRequest;
     }
 }
