@@ -2,62 +2,51 @@
 
 declare(strict_types=1);
 
-/*
-|--------------------------------------------------------------------------
-| Test Case
-|--------------------------------------------------------------------------
-|
-| The closure you provide to your test functions is always bound to a specific PHPUnit test
-| case class. By default, that class is "PHPUnit\Framework\TestCase". Of course, you may
-| need to change it using the "uses()" function to bind a different classes or traits.
-|
-*/
-
-// uses(Tests\TestCase::class)->in('Feature');
-
-/*
-|--------------------------------------------------------------------------
-| Expectations
-|--------------------------------------------------------------------------
-|
-| When you're writing tests, you often need to check that values meet certain conditions. The
-| "expect()" function gives you access to a set of "expectations" methods that you can use
-| to assert different things. Of course, you may extend the Expectation API at any time.
-|
-*/
-
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\PendingRequest;
+use Tobiasn\BitbucketApi\BitbucketApiConnector;
+use Tobiasn\BitbucketApi\Tests\TestCase;
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
+uses(TestCase::class)->in(__DIR__);
 
-/*
-|--------------------------------------------------------------------------
-| Functions
-|--------------------------------------------------------------------------
-|
-| While Pest is very powerful out-of-the-box, you may have some testing code specific to your
-| project that you don't want to repeat in every file. Here you can also expose helpers as
-| global functions to help you to reduce the number of lines of code in your test files.
-|
-*/
-
-function something()
+/**
+ * Build a mock response from a raw Bitbucket API JSON body stored in tests/Fixtures.
+ */
+function apiFixture(string $name, int $status = 200): MockResponse
 {
-    // ..
+    $path = __DIR__.'/Fixtures/'.$name.'.json';
+
+    if (! is_file($path)) {
+        throw new RuntimeException("Fixture [{$name}] not found at {$path}");
+    }
+
+    $contents = file_get_contents($path);
+
+    if ($contents === false) {
+        throw new RuntimeException("Fixture [{$name}] could not be read");
+    }
+
+    return MockResponse::make($contents, $status, ['Content-Type' => 'application/json']);
 }
 
-function mockClient(): MockClient
+/**
+ * Build a connector with a mock client mapping request classes (or a sequence) to fixtures.
+ *
+ * @param  array<class-string|int, MockResponse|string>  $map  Values may be fixture names or MockResponse instances.
+ * @return array{BitbucketApiConnector, MockClient}
+ */
+function mockConnector(array $map): array
 {
-    return new MockClient([
-        '*' => function (PendingRequest $pendingRequest) {
-            $endpoint = $pendingRequest->getRequest()->resolveEndpoint();
-            $method = $pendingRequest->getMethod()->value;
+    $responses = [];
 
-            return MockResponse::fixture(implode('/', [$endpoint, $method]));
-        },
-    ]);
+    foreach ($map as $key => $value) {
+        $responses[$key] = $value instanceof MockResponse ? $value : apiFixture($value);
+    }
+
+    $mockClient = new MockClient($responses);
+
+    $connector = new BitbucketApiConnector;
+    $connector->withMockClient($mockClient);
+
+    return [$connector, $mockClient];
 }

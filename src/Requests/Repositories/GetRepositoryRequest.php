@@ -12,7 +12,7 @@ use Tobiasn\BitbucketApi\DataTransferObjects\RepositoryDTO;
 /**
  * @see https://developer.atlassian.com/cloud/bitbucket/rest/api-group-repositories/#api-repositories-workspace-repo-slug-get
  */
-class GetRepositoryRequest extends Request
+final class GetRepositoryRequest extends Request
 {
     protected Method $method = Method::GET;
 

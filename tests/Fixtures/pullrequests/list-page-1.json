@@ -1,0 +1,204 @@
+{
+  "pagelen": 2,
+  "page": 1,
+  "size": 3,
+  "values": [
+    {
+      "type": "pullrequest",
+      "id": 1,
+      "title": "PR 1",
+      "description": "Body",
+      "state": "OPEN",
+      "author": {
+        "type": "user",
+        "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+        "display_name": "Jane Doe",
+        "nickname": "jane",
+        "account_id": "557058:abc"
+      },
+      "close_source_branch": true,
+      "comment_count": 2,
+      "task_count": 0,
+      "created_on": "2026-10-01T10:00:00+00:00",
+      "updated_on": "2026-10-02T10:00:00+00:00",
+      "reason": "",
+      "merge_commit": null,
+      "closed_by": null,
+      "source": {
+        "repository": {
+          "type": "repository",
+          "uuid": "{66666666-7777-8888-9999-000000000000}",
+          "full_name": "acme/api",
+          "slug": "api",
+          "name": "api",
+          "is_private": true,
+          "description": "The API",
+          "language": "php",
+          "owner": {
+            "type": "user",
+            "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+            "display_name": "Jane Doe",
+            "nickname": "jane",
+            "account_id": "557058:abc"
+          },
+          "workspace": {
+            "type": "workspace",
+            "uuid": "{11111111-2222-3333-4444-555555555555}",
+            "slug": "acme",
+            "name": "Acme Inc",
+            "is_private": true
+          },
+          "scm": "git",
+          "links": {
+            "html": {
+              "href": "https://bitbucket.org/acme/api"
+            }
+          }
+        },
+        "branch": {
+          "name": "feature/x"
+        },
+        "commit": {
+          "hash": "cccccccccccccccccccccccccccccccccccccccc"
+        }
+      },
+      "destination": {
+        "repository": {
+          "type": "repository",
+          "uuid": "{66666666-7777-8888-9999-000000000000}",
+          "full_name": "acme/api",
+          "slug": "api",
+          "name": "api",
+          "is_private": true,
+          "description": "The API",
+          "language": "php",
+          "owner": {
+            "type": "user",
+            "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+            "display_name": "Jane Doe",
+            "nickname": "jane",
+            "account_id": "557058:abc"
+          },
+          "workspace": {
+            "type": "workspace",
+            "uuid": "{11111111-2222-3333-4444-555555555555}",
+            "slug": "acme",
+            "name": "Acme Inc",
+            "is_private": true
+          },
+          "scm": "git",
+          "links": {
+            "html": {
+              "href": "https://bitbucket.org/acme/api"
+            }
+          }
+        },
+        "branch": {
+          "name": "main"
+        },
+        "commit": {
+          "hash": "dddddddddddddddddddddddddddddddddddddddd"
+        }
+      }
+    },
+    {
+      "type": "pullrequest",
+      "id": 2,
+      "title": "PR 2",
+      "description": "Body",
+      "state": "OPEN",
+      "author": {
+        "type": "user",
+        "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+        "display_name": "Jane Doe",
+        "nickname": "jane",
+        "account_id": "557058:abc"
+      },
+      "close_source_branch": true,
+      "comment_count": 2,
+      "task_count": 0,
+      "created_on": "2026-10-01T10:00:00+00:00",
+      "updated_on": "2026-10-02T10:00:00+00:00",
+      "reason": "",
+      "merge_commit": null,
+      "closed_by": null,
+      "source": {
+        "repository": {
+          "type": "repository",
+          "uuid": "{66666666-7777-8888-9999-000000000000}",
+          "full_name": "acme/api",
+          "slug": "api",
+          "name": "api",
+          "is_private": true,
+          "description": "The API",
+          "language": "php",
+          "owner": {
+            "type": "user",
+            "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+            "display_name": "Jane Doe",
+            "nickname": "jane",
+            "account_id": "557058:abc"
+          },
+          "workspace": {
+            "type": "workspace",
+            "uuid": "{11111111-2222-3333-4444-555555555555}",
+            "slug": "acme",
+            "name": "Acme Inc",
+            "is_private": true
+          },
+          "scm": "git",
+          "links": {
+            "html": {
+              "href": "https://bitbucket.org/acme/api"
+            }
+          }
+        },
+        "branch": {
+          "name": "feature/x"
+        },
+        "commit": {
+          "hash": "cccccccccccccccccccccccccccccccccccccccc"
+        }
+      },
+      "destination": {
+        "repository": {
+          "type": "repository",
+          "uuid": "{66666666-7777-8888-9999-000000000000}",
+          "full_name": "acme/api",
+          "slug": "api",
+          "name": "api",
+          "is_private": true,
+          "description": "The API",
+          "language": "php",
+          "owner": {
+            "type": "user",
+            "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+            "display_name": "Jane Doe",
+            "nickname": "jane",
+            "account_id": "557058:abc"
+          },
+          "workspace": {
+            "type": "workspace",
+            "uuid": "{11111111-2222-3333-4444-555555555555}",
+            "slug": "acme",
+            "name": "Acme Inc",
+            "is_private": true
+          },
+          "scm": "git",
+          "links": {
+            "html": {
+              "href": "https://bitbucket.org/acme/api"
+            }
+          }
+        },
+        "branch": {
+          "name": "main"
+        },
+        "commit": {
+          "hash": "dddddddddddddddddddddddddddddddddddddddd"
+        }
+      }
+    }
+  ],
+  "next": "https://api.bitbucket.org/2.0/repositories/acme/api/pullrequests?state=OPEN&pagelen=2&page=2"
+}

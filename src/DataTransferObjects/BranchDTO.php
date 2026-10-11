@@ -10,5 +10,6 @@ final class BranchDTO extends Data
 {
     public function __construct(
         public string $name,
+        public ?CommitDTO $target = null,
     ) {}
 }

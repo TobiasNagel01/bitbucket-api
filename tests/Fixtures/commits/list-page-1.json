@@ -1,0 +1,52 @@
+{
+  "pagelen": 2,
+  "values": [
+    {
+      "type": "commit",
+      "hash": "1111111111111111111111111111111111111111",
+      "date": "2026-10-01T10:00:00+00:00",
+      "message": "one",
+      "author": {
+        "type": "author",
+        "raw": "Jane Doe <jane@example.com>",
+        "user": {
+          "type": "user",
+          "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+          "display_name": "Jane Doe",
+          "nickname": "jane",
+          "account_id": "557058:abc"
+        }
+      },
+      "parents": [
+        {
+          "type": "commit",
+          "hash": "0000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "type": "commit",
+      "hash": "2222222222222222222222222222222222222222",
+      "date": "2026-10-01T10:00:00+00:00",
+      "message": "two",
+      "author": {
+        "type": "author",
+        "raw": "Jane Doe <jane@example.com>",
+        "user": {
+          "type": "user",
+          "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+          "display_name": "Jane Doe",
+          "nickname": "jane",
+          "account_id": "557058:abc"
+        }
+      },
+      "parents": [
+        {
+          "type": "commit",
+          "hash": "0000000000000000000000000000000000000000"
+        }
+      ]
+    }
+  ],
+  "next": "https://api.bitbucket.org/2.0/repositories/acme/api/commits?pagelen=2&ctx=opaque-cursor-123"
+}

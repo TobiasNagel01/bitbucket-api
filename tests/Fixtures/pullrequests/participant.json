@@ -1,0 +1,14 @@
+{
+  "type": "participant",
+  "user": {
+    "type": "user",
+    "uuid": "{a1b2c3d4-0000-0000-0000-000000000001}",
+    "display_name": "Jane Doe",
+    "nickname": "jane",
+    "account_id": "557058:abc"
+  },
+  "role": "REVIEWER",
+  "approved": true,
+  "state": "approved",
+  "participated_on": "2026-10-02T10:00:00+00:00"
+}
